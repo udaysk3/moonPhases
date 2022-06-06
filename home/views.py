@@ -1,7 +1,6 @@
 from pickletools import read_uint1
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from matplotlib.style import context
 import requests
 from . import phaseNo
 from home.models import Feedback
