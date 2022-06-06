@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<h2 class="text-center my-2  enter text-muted">Enter no of Persons : </h2>
+
+<form action="" method="POST" id="enter-form">
+    {% csrf_token %}
+<select class="enter-select" title"enter no of persons" name="persons" id="select">
+    <option value="1">Single</option>
+    <option value="2">Couple</option>
+</select>
+ <a href="{% url 'index' %}"><button type="submit" class="enter-submit">Get Moon</button></a>
+</form>
+
+{% endblock main %}
+
+{% block fixed %}
+<footer id="contact" class="fixed-bottom text-center text-white">
+  {% endblock fixed %}
+

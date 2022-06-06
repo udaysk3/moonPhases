@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block welcome %}
+{% if submit %}
+<div class="alert">
+ <div class="alert-div alert-warning alert-dismissible fade show" role="alert">
+   <h5><strong> Thank You!</strong> Your Feedback Helps Us !</h5>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+</div>
+{% endif %}
+    <main class="my-5">
+        <div class="container welcome" style="margin-top: 7rem">
+            <img src="{% static 'home/logo-nani.png' %}" class="logo-moon" alt="My-Moon">
+            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#128293</h1>
+        </div>
+        {% endblock welcome %}
+
+{% block main %}
+<h1 class="h1 text-muted text-center" style="font-size:1.5rem">Enter Your Feedback/Query Here..</h1>
+
+<form class="feedback-group" action="feedback" method="POST">
+    {% csrf_token %}
+    <div class="form-group feedback">
+      <label for="exampleInputEmail1">Name</label>
+      <input type="text" class="form-control" name="name" id="exampleInputEmail1"  placeholder="Enter Your Name Here..">
+      <small id="emailHelp" class="form-text text-muted">Your name is just for reference</small>
+    </div>
+
+    <div class="form-group feedback">
+      <label for="exampleInputPassword1">Feedback/About Bug</label>
+      <input type="text" class="form-control" name="feedback"  placeholder="Enter your message here...">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+  {% endblock main %}
+
+  {% block fixed %}
+  <footer id="contact" class=" text-center text-white">
+    {% endblock fixed %}

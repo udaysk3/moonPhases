@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block welcome %}
+    <main class="my-5">
+        <div class="container welcome" style="margin-top: 6rem">
+            <img src="{% static 'home/logo-nani.png' %}" class="logo-moon" alt="My-Moon">
+            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#128293</h1>
+        </div>
+        {% endblock welcome %}
+
+
+{% block main %}
+<h1 class="text-center text-muted upcoming-title">Upcoming Features of this Page : </h1>
+<div class="jumbotron ">
+    <h1 class="display-4">Multiple Phases</h1>
+    <p class="lead">Phases for more than 2 persons in a single wallpaper</p>
+    <hr class="my-4">
+    <p>Want to make this change ? Contribute to my Repo</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+<div class="jumbotron ">
+    <h1 class="display-4">Django Authorization and profiles</h1>
+    <p class="lead">Users can create their profile in the website and add wallpapers ans store them in their profiles</p>
+    <hr class="my-4">
+    <p>Want to make this change ? Contribute to my Repo</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+<div class="jumbotron ">
+    <h1 class="display-4">Feedback and Bug Reply</h1>
+    <p class="lead">After submitting their feedback or after reporting about the bug, users can get reply from the admin email automatically.</p>
+    <hr class="my-4">
+    <p>Want to make this change ? Contribute to my Repo</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+<div class="jumbotron ">
+    <h1 class="display-4">More responsiveness to Tablet mode</h1>
+    <p class="lead">Add more reponsiveness to this site in medium width devices having width between 500-900 pixels</p>
+    <hr class="my-4">
+    <p>Want to make this change ? Contribute to my Repo</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+
+<div class="jumbotron ">
+    <h1 class="display-4">Get Username on the wallpaper</h1>
+    <p class="lead">Users can get their name on the wallpaper below their moon phase</p>
+    <hr class="my-4">
+    <p>Want to make this change ? Contribute to my Repo</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+
+<div class="jumbotronfinal">
+    <h1 class="display-4">Any New Ideas ? </h1>
+    <p class="lead">Have any new ideas and want to contribute to this project?</p>
+    <hr class="my-4">
+    <p>You can either contact me or make a pull request</p>
+    <p class="lead">
+      <a class="btn btn-secondary btn-lg" href="https://github.com/udaysk3/moonPhases" target="blank" role="button">Repository</a>
+    </p>
+  </div>
+
+{% endblock main %}
+    </main>
+
+    {% block fixed %}
+    <footer id="contact" class=" text-center text-white">
+      {% endblock fixed %}
