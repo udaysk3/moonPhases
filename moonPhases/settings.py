@@ -81,12 +81,10 @@ CORS_ALLOWED_ORIGINS = [
 
     ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.lunaf\.com$",
     r"^https://\w+\.findyourmoon.herokuapp\.com$",
     
 ]
 CSRF_TRUSTED_ORIGINS = [
-        'http://lunaf.com',
     'https://findyourmoon.herokuapp.com'
     ]
 # Database
