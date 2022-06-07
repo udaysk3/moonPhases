@@ -18,7 +18,7 @@ def getPhaseno(num_of_days,phase,illumination):
                     phase_no = 6
                 elif illumination>=49:
                     phase_no = 7
-            elif phase=='First Quarter':
+            elif phase=='1st Quarter':
                 if illumination>=50 and illumination<=55:
                     phase_no = 8
                 else:
@@ -52,9 +52,9 @@ def getPhaseno(num_of_days,phase,illumination):
                     phase_no = 21
                 elif illumination<77 and illumination>=67:
                     phase_no = 22
-                elif illumination<67 and illumination>=57:
+                elif illumination<67 and illumination>=50:
                     phase_no = 23    
-            elif phase== 'Last Quarter':
+            elif phase== '3rd Quarter':
                 if illumination>50:
                     phase_no = 24
                 else:
@@ -124,9 +124,9 @@ def getPhaseno(num_of_days,phase,illumination):
                     phase_no = 21
                 elif illumination<77 and illumination>=67:
                     phase_no = 22
-                elif illumination<67 and illumination>=57:
+                elif illumination<67 and illumination>=50:
                     phase_no = 23    
-            elif phase== 'Last Quarter':
+            elif phase== '3rd Quarter':
                 if illumination>50:
                     phase_no = 24
                 else:
@@ -196,9 +196,9 @@ def getPhaseno(num_of_days,phase,illumination):
                     phase_no = 21
                 elif illumination<77 and illumination>=67:
                     phase_no = 22
-                elif illumination<67 and illumination>=57:
+                elif illumination<67 and illumination>=50:
                     phase_no = 23    
-            elif phase== 'Last Quarter':
+            elif phase== '3rd Quarter':
                 if illumination>50:
                     phase_no = 24
                 else:

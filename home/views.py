@@ -49,24 +49,24 @@ def index2(request):
         print(unxtimestamp2)
         req1 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+unxtimestamp1)
         req2 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+unxtimestamp2)
-        phase1 = req1.json()[0]["Phase"]
+        phase = req1.json()[0]["Phase"]
         phase2 = req2.json()[0]["Phase"]
         illumination1 = req1.json()[0]['Illumination'] * 100
         illumination2 = req2.json()[0]['Illumination'] * 100
         moon_name1 = req1.json()[0]['Moon']
         moon_name2 = req2.json()[0]['Moon']
-        print(phase1, illumination1,day1,month1,year1)
+        print(phase, illumination1,day1,month1,year1)
         print(phase2, illumination2,day2,month2,year2)
         print(year1, month1)
         print(year2, month2)
         num_of_days1 = phaseNo.numberOfDays(y = year1,m = month1)
         num_of_days2 = phaseNo.numberOfDays(y = year2,m = month2)
-        phase_no1 = phaseNo.getPhaseno(phase= phase1, illumination = illumination1,num_of_days =num_of_days1)
+        phase_no1 = phaseNo.getPhaseno(phase= phase, illumination = illumination1,num_of_days =num_of_days1)
         phase_no2 = phaseNo.getPhaseno(phase= phase2, illumination = illumination2,num_of_days =num_of_days2)
         print(num_of_days1, phase_no1)
         print(num_of_days2, phase_no2)
-        context['source'] = "https://lunaf.com/img/moon/l-phase-"+str(phase_no1)+".png?ezimgfmt=ng:webp/ngcb1"
-        context['source2'] = "https://lunaf.com/img/moon/l-phase-"+str(phase_no2)+".png?ezimgfmt=ng:webp/ngcb1"
+        context['source'] =  "static/home/l-phase-"+str(phase_no1)+".png"
+        context['source2'] =  "static/home/l-phase-"+str(phase_no2)+".png"
         context['phaseNo1'] = phase_no1
         context['phaseNo2'] = phase_no2
         context['day1'] = day1
@@ -77,7 +77,8 @@ def index2(request):
         context['age1'] =  req1.json()[0]['Age']
         context['distance1'] =  req1.json()[0]['Distance']
         context['distanceToSun1'] =  req1.json()[0]['DistanceToSun']
-        
+        context['phase'] = phase
+        context['phase2'] = phase2
         context['day2'] = day2
         context['month2'] = month2
         context['year2'] = year2
@@ -111,8 +112,9 @@ def index(request):
         num_of_days = phaseNo.numberOfDays(y = year,m = month)
         phase_no = phaseNo.getPhaseno(phase= phase, illumination = illumination,num_of_days =num_of_days)
         print(num_of_days, phase_no)
-        context['source'] = "https://lunaf.com/img/moon/l-phase-"+str(phase_no)+".png?ezimgfmt=ng:webp/ngcb1"
+        context['source'] = "static/home/l-phase-"+str(phase_no)+".png"
         context['phaseNo'] = phase_no
+        context['phase'] = phase
         context['day'] = day
         context['month'] = month
         context['year'] = year

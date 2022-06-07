@@ -81,11 +81,10 @@ CORS_ALLOWED_ORIGINS = [
 
     ]
 CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.findyourmoon.herokuapp\.com$",
-    
+    r"^https://\w+\.lunaf\.com$",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://findyourmoon.herokuapp.com'
+        'https://lunaf.com',
     ]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
