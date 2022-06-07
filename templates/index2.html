@@ -99,6 +99,10 @@
                 <td>  <h5> {{day1}}/{{month1}}/{{year1}}</h5></td>
             </tr>
             <tr>
+                <td> <h4>Moon Phase :  </h4></td>
+                <td>  <h5> {{phase}}</h5></td>
+            </tr>
+            <tr>
                 <td><h4>illumination : </h4></td>
                 <td> <h5>{{illumination1}}</h5></td>
             </tr>
@@ -134,6 +138,10 @@
             <tr>
                 <td> <h4>Date of this Moon :  </h4></td>
                 <td>  <h5> {{day2}}/{{month2}}/{{year2}}</h5></td>
+            </tr>
+            <tr>
+                <td> <h4>Moon Phase :  </h4></td>
+                <td>  <h5> {{phase2}}</h5></td>
             </tr>
             <tr>
                 <td><h4>illumination : </h4></td>
@@ -176,10 +184,14 @@
     </main>
     {% endif %}
     <!-- Optional JavaScript; choose one of the two! -->
-    <div id="downloadcanvas" >
-        
-        <h4>Long Press and download this Image </h4>
-        <canvas title="download this canvas" width="900" height="1800"  id="canvas">
+    <div id="downloadcanvas">
+            <div class="container donwload-canvas-div">
+                <a id="download" download="moon.png">
+                    <button type="button" onClick="pop()">Download</button>
+                    </a>
+            </div>
+         <canvas title="download this canvas" width="900" height="1800"  id="canvas">
+            
             </canvas>
     </div>
 
@@ -235,7 +247,22 @@
       </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script>
-       
+
+        function pop()
+        {            
+        {% comment %} var canvas = document.getElementById('canvas');
+        var dataURL = canvas.toDataURL();
+        console.log(dataURL);
+        let image = new Image();
+        image.src = dataURL;
+        image.download = 'ourmoon.png';  {% endcomment %}
+            var download = document.getElementById("download");
+            var image = document.getElementById("canvas").toDataURL("image/png")
+                .replace("image/png", "image/octet-stream");
+            download.setAttribute("href", image);
+            //download.setAttribute("download","archive.png");
+            
+        }
 for (var i = 1; i <= 31; i++) {
     var select = document.getElementById("day");
     var select2 = document.getElementById("day2");
@@ -334,6 +361,11 @@ window.onload = function() {
     {% if source %}
     document.querySelector('footer').style = 'position:relative'
     {% endif %}
+
+    
+ 
+
+    
 {% comment %} function convertCanvasToImage() {
     let canvas = document.getElementById("canvas");
     let image = new Image();

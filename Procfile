@@ -1,1 +1,1 @@
-web: gunicorn moonPhases.wsgi
+web: gunicorn gettingstarted.wsgi
