@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/f3fe8e4fa0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
     <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
     <link rel="shortcut icon" href= " {% static 'home/logo-nani.png' %}" type="image/x-icon">
     
@@ -88,6 +89,10 @@
                 <td>  <h5> {{day}}/{{month}}/{{year}}</h5></td>
             </tr>
             <tr>
+                <td> <h4>Moon Phase :  </h4></td>
+                <td>  <h5> {{phase}}</h5></td>
+            </tr>
+            <tr>
                 <td><h4>illumination : </h4></td>
                 <td> <h5>{{illumination}}</h5></td>
             </tr>
@@ -130,9 +135,11 @@
     <div id="downloadcanvas">
         <h4>Long Press and download this Image </h4>
         <canvas title="download this canvas" width="900" height="1800"  id="canvas">
+
+           
     </div>
 
-
+    <button onclick="pop()">Download</button>
     <footer id="contact" class="fixed-bottom text-center text-white">
         <!-- Grid container -->
         <h3 class="h3">Contact Me : <span class="name">UdaySK</span> </h3>
@@ -183,7 +190,26 @@
         <!-- Copyright -->
       </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src=" {% static 'home/js/app.js' %} " type="module"></script>
     <script>
+
+
+        function pop()
+        {
+{% comment %}             
+        var canvas = document.getElementById('canvas');
+        var dataURL = canvas.toDataURL();
+        console.log(dataURL); {% endcomment %}
+        try {
+            localStorage.setItem("saved-image-example", canvas.toDataURL("image/png"));
+          }
+          catch(err) {
+            console.log("Error: " + err);
+          }
+      
+        }
+
+
        
 for (var i = 1; i <= 31; i++) {
     var select = document.getElementById("day");
@@ -226,7 +252,7 @@ window.onload = function() {
     // GET THE IMAGE.
     var img = new Image();
     img.src = '{{source}}';
-    {% comment %} img.crossOrigin =  'anonymous'; {% endcomment %}
+   img.crossOrigin =  'anonymous';
     // WAIT TILL IMAGE IS LOADED.
     img.onload = function() {
         fill_canvas(img); // FILL THE CANVAS WITH THE IMAGE.
@@ -251,22 +277,7 @@ window.onload = function() {
             var x = document.getElementById("downloadcanvas");
             x.style.display = 'block'
     }
-{% comment %} function convertCanvasToImage() {
-    let canvas = document.getElementById("canvas");
-    let image = new Image();
-    image.src = canvas.toDataURL();
-    image.crossOrigin = '*';
-    image.onload = function() {
-        resolve(image);
-    };
-    return image;
-  }
-  
-function download() {
-   
-    download.setAttribute("href", convertCanvasToImage());
-    download.setAttribute("download", "{{source}}");
-} {% endcomment %}
+
 
 {% if source %}
     document.querySelector('footer').style = 'position:relative'
