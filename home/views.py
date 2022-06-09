@@ -87,6 +87,12 @@ def index2(request):
         context['age2'] =  req2.json()[0]['Age']
         context['distance2'] =  req2.json()[0]['Distance']
         context['distanceToSun2'] =  req2.json()[0]['DistanceToSun']
+        context['afterSubmitDay1'] = int(day1)
+        context['afterSubmitMonth1'] = int(month1)
+        context['afterSubmitYear1'] = int(year1)
+        context['afterSubmitDay2'] = int(day2)
+        context['afterSubmitMonth2'] = int(month2)
+        context['afterSubmitYear2'] = int(year2)
         
         return render(request,'index2.html', context)
     return render(request,'index2.html',context)
@@ -123,7 +129,10 @@ def index(request):
         context['age'] =  req.json()[0]['Age']
         context['distance'] =  req.json()[0]['Distance']
         context['distanceToSun'] =  req.json()[0]['DistanceToSun']
-        
+        context['afterSubmitDay'] = int(day)
+        context['afterSubmitMonth'] = int(month)
+        context['afterSubmitYear'] = int(year)
+        print(context)
         return render(request,'index.html', context)
     return render(request,'index.html',context)
 

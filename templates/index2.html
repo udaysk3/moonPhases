@@ -57,7 +57,7 @@
     <main >
         <div class="container welcome">
             <img src="{% static 'home/logo-nani.png' %}" class="logo-moon" alt="My-Moon">
-            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#128293</h1>
+            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#127770;</h1>
         </div>
         <div class="d-block text-center">
             <form action="home2" method="POST">
@@ -75,7 +75,7 @@
                     <select name="month2" id="month2" title="set your birth month"></select>
                     <select name="year2" id="year2" title="set your birth year"></select>
                 </div>
-                <button type="submit" class="submit btn-grad" title="click me to get your moon"></button>
+                <button type="submit" class="submit" title="click me to get your moon">Get Moon</button>
                 
                
                 
@@ -125,7 +125,7 @@
             </table>
 
 
-            <h3 class="h3 text-muted text-center">Second Moon : </h3>
+            <h3 class="h3 text-muted text-center">Your Partner's Moon : </h3>
             <div class="container userspace2">
                 <img class="user-moon" id="img2" src="{{source2}}" alt="Moon">
             </div>
@@ -176,7 +176,7 @@
 
         <div id="downloaddiv">
             <a href="#downloadcanvas">
-                <button onclick="activeCanvas()">
+                <button  class="black-bg" onclick="activeCanvas()">
                     Get Your Wallpaper
                     </button>
                 </a>
@@ -187,7 +187,7 @@
     <div id="downloadcanvas">
             <div class="container donwload-canvas-div">
                 <a id="download" download="moon.png">
-                    <button type="button" onClick="pop()">Download</button>
+                    <button type="button"  class="black-bg" onClick="pop()">Download</button>
                     </a>
             </div>
          <canvas title="download this canvas" width="900" height="1800"  id="canvas">
@@ -229,7 +229,7 @@
             ></a>
 
             <!-- gmail -->
-            <a class="btn btn-outline-light btn-floating m-1" href=mailto:burluudaysantoshkumar3@gmail.com?subject="Hello UdaySK" target="blank" role="button"
+            <a class="btn btn-outline-light btn-floating m-1" href=mailto:burluudaysantoshkumar3@gmail.com?subject=HelloUdaysk target="blank" role="button"
               ><i class="fab fa-google"></i
             ></a>
             
@@ -314,6 +314,34 @@ for (var i = 1970; i <= 2099; i++) {
     option.value = i;
     option2.value = i;
 }
+
+
+
+{% if afterSubmitDay1 %}
+        {% comment %} var day = document.getElementById("day")
+        var month = document.getElementById("month") {% endcomment %}
+        var year = document.getElementById("year")
+        year.value = {{afterSubmitYear1}};
+        var day = document.getElementById("day");
+        day.value = {{afterSubmitDay1}}
+        var month = document.getElementById("month")
+        month.value = {{afterSubmitMonth1}}
+        
+        {% endif %}
+
+{% if afterSubmitDay2 %}
+        {% comment %} var day = document.getElementById("day")
+        var month = document.getElementById("month") {% endcomment %}
+        var year = document.getElementById("year2")
+        year.value = {{afterSubmitYear2}};
+        var day = document.getElementById("day2");
+        day.value = {{afterSubmitDay2}}
+        var month = document.getElementById("month2")
+        month.value = {{afterSubmitMonth2}}
+        
+        {% endif %}
+
+
 window.onload = function() {
     // GET THE IMAGE.
     var img = new Image();

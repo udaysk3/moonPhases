@@ -99,13 +99,12 @@ button {
 .submit {
     margin: 2rem;
     background-color: rgb(10, 10, 10);
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    border: 4px solid rgb(17, 17, 17);
-    /* I set 2 shadows where the first one doesn't have blur and spread for firefox fix. */
-    box-shadow: inset 14px 0px rgb(237, 237, 237), inset 13px 3px 1px 1px rgb(222, 222, 222);
-    -moz-box-shadow: inset 0px 16px rgb(228, 228, 228), inset 0px 16px 1px 1px rgb(213, 208, 208);
+    padding: 0.5rem;
+    // border-radius: 50%;
+    // border: 4px solid rgb(17, 17, 17);
+    // /* I set 2 shadows where the first one doesn't have blur and spread for firefox fix. */
+    // box-shadow: inset 14px 0px rgb(237, 237, 237), inset 13px 3px 1px 1px rgb(222, 222, 222);
+    // -moz-box-shadow: inset 0px 16px rgb(228, 228, 228), inset 0px 16px 1px 1px rgb(213, 208, 208);
 }
 
 a {
@@ -221,6 +220,11 @@ table th {
 
 canvas {
     width: 80%;
+}
+
+.black-bg {
+    background-color: #000000;
+    color: #f2f2f2;
 }
 
 #downloaddiv {
@@ -407,16 +411,6 @@ button {
         // width: 1rem;
         margin: 2rem;
         background-color: #0a0a0a;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
-        border: 4px solid #111111;
-        box-shadow: inset 11px 0px #ededed, inset 9px 3px 1px 2px #dedede;
-        -moz-box-shadow: inset 0px 16px #e4e4e4, inset 0px 16px 1px 1px #d5d0d0;
-    }
-    .submit:hover {
-        width: 2.6rem;
-        height: 2.6rem;
     }
     .userspace,
     .userspace2 {

@@ -56,7 +56,7 @@
     <main>
         <div class="container welcome">
             <img src="{% static 'home/logo-nani.png' %}" class="logo-moon" alt="My-Moon">
-            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#128293</h1>
+            <h1 class="text-dark text-center" title="Give your date of birth and click on moon icon">Welcome to FindYourMoon &#127770;</h1>
         </div>
         <div class="d-block text-center">
             <form action="home" method="POST">
@@ -65,10 +65,10 @@
                 <h3 class="h3 text-muted">Your Date Of Birth : </h3>
                 <div class="select">
                     <select name="day" id="day" title="set your birth day"></select>
-                    <select name="month" id="month" title="set your birth month"></select>
+                    <select name="month"  id="month" title="set your birth month"></select>
                     <select name="year" id="year" title="set your birth year"></select>
                 </div>
-                <button type="submit" class="submit  btn-grad" title="click me to get your moon"></button>
+                <button type="submit" class="submit" title="click me to get your moon">Get Moon</button>
                  {% if source %}
                 <div class="container userspace">
                     <h3 class="h3 text-muted">Your Moon : </h3>
@@ -124,7 +124,7 @@
         </div>
         <div id="downloaddiv">
             <a href="#downloadcanvas">
-                <button onclick="activeCanvas()">
+                <button class="black-bg" onclick="activeCanvas()">
                     Get Your Wallpaper
                     </button>
                 </a>
@@ -135,7 +135,7 @@
     <div id="downloadcanvas">
         <div class="container">
             <a id="download" download="moon.png">
-                <button type="button" onClick="pop()">Download</button>
+                <button type="button" class="black-bg" onClick="pop()">Download</button>
                 </a>
         </div>
         
@@ -176,7 +176,7 @@
             ></a>
 
             <!-- gmail -->
-            <a class="btn btn-outline-light btn-floating m-1" href=mailto:burluudaysantoshkumar3@gmail.com?subject="Hello Udaysk" target="blank" role="button"
+            <a class="btn btn-outline-light btn-floating m-1" href=mailto:burluudaysantoshkumar3@gmail.com?subject=HelloUdaysk target="blank" role="button"
               ><i class="fab fa-google"></i
             ></a>
             
@@ -213,7 +213,8 @@
             
         }
 
-
+        
+        
        
 for (var i = 1; i <= 31; i++) {
     var select = document.getElementById("day");
@@ -241,7 +242,6 @@ for (var i = 1; i <= 12; i++) {
     var select = document.getElementById("month");
     var option = document.createElement("OPTION");
     select.options.add(option);
-
     option.text = monthDict[i];
     option.value = i;
 }
@@ -252,6 +252,20 @@ for (var i = 1970; i <= 2099; i++) {
     option.text = i;
     option.value = i;
 }
+
+
+{% if afterSubmitDay %}
+        {% comment %} var day = document.getElementById("day")
+        var month = document.getElementById("month") {% endcomment %}
+        var year = document.getElementById("year")
+        year.value = {{afterSubmitYear}};
+        var day = document.getElementById("day");
+        day.value = {{afterSubmitDay}}
+        var month = document.getElementById("month")
+        month.value = {{afterSubmitMonth}}
+        
+        {% endif %}
+
 window.onload = function() {
     // GET THE IMAGE.
     var img = new Image();
