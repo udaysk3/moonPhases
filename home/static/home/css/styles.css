@@ -459,3 +459,9 @@ button {
     font-size: 1rem;
   }
 }
+
+@media only screen and (min-width: 450px) and (max-width: 990px) {
+  .welcome {
+    margin-top: 8em;
+  }
+}
