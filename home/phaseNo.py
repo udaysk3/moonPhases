@@ -1,7 +1,9 @@
 def getPhaseno(num_of_days,phase,illumination):
     illumination = int(illumination)
     if num_of_days == 31:
-            if phase == 'New Moon':
+            if phase == 'Dark Moon':
+                phase_no = 0
+            elif phase == 'New Moon':
                 phase_no = 0
             elif(phase == 'Waxing Crescent'):
                 if illumination <=2:
@@ -73,7 +75,7 @@ def getPhaseno(num_of_days,phase,illumination):
             elif phase== 'Dark Moon':
                    phase_no = 31
     elif num_of_days == 30:
-            if phase == 'New Moon':
+            if phase == 'Dark Moon':
                 phase_no = 0
             elif(phase == 'Waxing Crescent'):
                 if illumination <=2:
@@ -145,7 +147,9 @@ def getPhaseno(num_of_days,phase,illumination):
                 elif illumination<7 and illumination>=1:
                     phase_no = 31
     elif num_of_days == 28 or num_of_days==29:
-            if phase == 'New Moon':
+            if phase == 'Dark Moon':
+                phase_no = 0
+            elif phase == 'New Moon':
                 phase_no = 0
             elif(phase == 'Waxing Crescent'):
                 if illumination <=2:
