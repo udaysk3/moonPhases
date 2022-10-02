@@ -2,8 +2,10 @@ from pickletools import read_uint1
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import requests
+import calendar, time; 
 from . import phaseNo
 from home.models import Feedback
+
 
 # Create your views here.
 def enter(request):
@@ -41,14 +43,12 @@ def index2(request):
         day2 = request.POST['day2']
         month2 = request.POST['month2']
         year2 = request.POST['year2']
-        timestampreq1 = requests.get("https://showcase.api.linx.twenty57.net/UnixTime/tounix?date="+year1+"/"+month1+"/"+day1+" 17:00:00")
-        timestampreq2 = requests.get("https://showcase.api.linx.twenty57.net/UnixTime/tounix?date="+year2+"/"+month2+"/"+day2+" 17:00:00")
-        unxtimestamp1 = timestampreq1.json()
-        unxtimestamp2 = timestampreq2.json()
+        unxtimestamp1 = calendar.timegm(time.strptime(day1+" "+month1+" "+year1+ " 17:00:00", '%d %m %Y %H:%M:%S'))
+        unxtimestamp2 = calendar.timegm(time.strptime(day2+" "+month2+" "+year2+ " 17:00:00", '%d %m %Y %H:%M:%S'))
         print(unxtimestamp1)
         print(unxtimestamp2)
-        req1 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+unxtimestamp1)
-        req2 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+unxtimestamp2)
+        req1 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp1))
+        req2 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp2))
         phase = req1.json()[0]["Phase"]
         phase2 = req2.json()[0]["Phase"]
         illumination1 = req1.json()[0]['Illumination'] * 100
@@ -106,10 +106,10 @@ def index(request):
         day = request.POST['day']
         month = request.POST['month']
         year = request.POST['year']
-        timestampreq = requests.get("https://showcase.api.linx.twenty57.net/UnixTime/tounix?date="+year+"/"+month+"/"+day+" 17:00:00")
-        unxtimestamp = timestampreq.json()
+        import calendar, time; 
+        unxtimestamp = calendar.timegm(time.strptime(day+" "+month+" "+year+ " 17:00:00", '%d %m %Y %H:%M:%S'))
         print(unxtimestamp)
-        req = requests.get("https://api.farmsense.net/v1/moonphases/?d="+unxtimestamp)
+        req = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp))
         phase = req.json()[0]["Phase"]
         illumination = req.json()[0]['Illumination'] * 100
         moon_name = req.json()[0]['Moon']
