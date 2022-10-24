@@ -47,8 +47,8 @@ def index2(request):
         unxtimestamp2 = calendar.timegm(time.strptime(day2+" "+month2+" "+year2+ " 17:00:00", '%d %m %Y %H:%M:%S'))
         print(unxtimestamp1)
         print(unxtimestamp2)
-        req1 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp1))
-        req2 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp2))
+        req1 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp1),verify=False)
+        req2 = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp2),verify=False)
         phase = req1.json()[0]["Phase"]
         phase2 = req2.json()[0]["Phase"]
         illumination1 = req1.json()[0]['Illumination'] * 100
@@ -109,7 +109,7 @@ def index(request):
         import calendar, time; 
         unxtimestamp = calendar.timegm(time.strptime(day+" "+month+" "+year+ " 17:00:00", '%d %m %Y %H:%M:%S'))
         print(unxtimestamp)
-        req = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp))
+        req = requests.get("https://api.farmsense.net/v1/moonphases/?d="+str(unxtimestamp),verify=False)
         phase = req.json()[0]["Phase"]
         illumination = req.json()[0]['Illumination'] * 100
         moon_name = req.json()[0]['Moon']
